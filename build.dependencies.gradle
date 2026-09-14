@@ -1,4 +1,6 @@
 repositories {
+    maven { url 'https://repo.dairy.foundation/releases/'}
+    maven { url 'https://cstahie.github.io/defined' }
     mavenCentral()
     google() // Needed for androidx
 }
@@ -13,5 +15,19 @@ dependencies {
     implementation 'org.firstinspires.ftc:FtcCommon:12.0.0'
     implementation 'org.firstinspires.ftc:Vision:12.0.0'
     implementation 'androidx.appcompat:appcompat:1.2.0'
+
+    // Pedro-Pathing (https://pedropathing.com/docs/pathing)
+    implementation 'com.pedropathing:revhub:3.0.0'
+    implementation 'com.pedropathing:tuning:1.0.0'
+
+    // NextFTC (https://nextftc.dev/introduction/)
+    implementation 'dev.nextftc.v2:control:0.2.0'
+    implementation 'dev.nextftc.v2:hardware:0.2.0'
+    implementation 'dev.nextftc.v2:robot:0.2.0'
+
+    // Defined (https://defined.teamundefined.com/)
+    implementation "com.teamundefined:defined-core:0.2.1"
+    implementation "com.teamundefined:defined-ftc:0.2.1"     // optional FTC glue
+    implementation "com.teamundefined:defined-pedro:0.2.1"   // optional Pedro actions
 }
 
