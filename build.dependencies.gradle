@@ -25,10 +25,5 @@ dependencies {
     implementation 'dev.nextftc.v2:control:0.2.0'
     implementation 'dev.nextftc.v2:hardware:0.2.0'
     implementation 'dev.nextftc.v2:robot:0.2.0'
-
-    // Defined (https://defined.teamundefined.com/)
-    implementation "com.teamundefined:defined-core:0.2.1"
-    implementation "com.teamundefined:defined-ftc:0.2.1"     // optional FTC glue
-    implementation "com.teamundefined:defined-pedro:0.2.1"   // optional Pedro actions
 }
 
