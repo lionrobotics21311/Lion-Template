@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.opmodes.autos;
 
 import static com.pedropathing.api.Paths.*;
 
+import com.pedropathing.api.Paths;
 import com.pedropathing.api.PoseFactory;
 import com.pedropathing.follower.Follower;
 import com.pedropathing.math.Pose;
@@ -22,7 +23,6 @@ import dev.nextftc.robot.opmode.NextOpMode;
 @NextAutonomous(name = "exampleAuto")
 public class exampleAuto extends NextOpMode {
     private Robot robot; // import mechs to be used
-
     public exampleAuto(Robot robot) {
         super(robot, BulkReadHook.INSTANCE); // Bulk read sensors
     }
@@ -59,9 +59,13 @@ public class exampleAuto extends NextOpMode {
         follower.update();
         Scheduler.execute();
 
-        telemetry.addData("x", follower.pose().x());
-        telemetry.addData("y", follower.pose().y());
-        telemetry.addData("heading", follower.pose().heading());
+        double robotX = follower.pose().x();
+        double robotY = follower.pose().y();
+        double robotHeading = follower.pose().heading();
+
+        telemetry.addData("x", robotX);
+        telemetry.addData("y", robotY);
+        telemetry.addData("heading", robotHeading);
 
         if (follower.currentPath() != null) {
             telemetry.addData("Current path distance remaining", follower.distanceToEndpoint());
