@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.opmodes.autos;
+package org.firstinspires.ftc.teamcode.opmodes.teleop;
 
 import static com.pedropathing.api.Paths.*;
 
@@ -26,7 +26,6 @@ public class exampleTele extends NextOpMode {
 
     private final NextPinpoint imu = new NextPinpoint("pinpoint");
 
-    // initialization i think`
     public exampleTele(Robot robot) {
         super(robot, BulkReadHook.INSTANCE);
         this.robot = robot;
@@ -36,7 +35,7 @@ public class exampleTele extends NextOpMode {
     // runs right when you click start from init
     @Override
     public void start() {
-
+        robot.drivetrain.startDrive(gamepad1);
     }
 
     // Runs every loop of the op mode until stopped

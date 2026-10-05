@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.mechanisms;
 
 import com.qualcomm.robotcore.hardware.Gamepad;
 
@@ -14,5 +14,13 @@ public class Drivetrain implements Mechanism {
 
     public void startDrive(Gamepad gamepad) {
         DriveCommands.mecanumDrive(frontLeft, frontRight, backLeft, backRight, gamepad).schedule();
+    }
+
+    // https://nextftc.dev/robot/drive-commands/#scalar
+    public static void setScalar(double scalar) {
+        DriveCommands.setScalar(scalar);
+    };
+    public static double getScalar() {
+        return DriveCommands.getScalar();
     }
 }
