@@ -15,6 +15,7 @@ import static com.pedropathing.ivy.pedro.PedroCommands.follow;
 
 import org.firstinspires.ftc.teamcode.Robot;
 import org.firstinspires.ftc.teamcode.pedro.Constants;
+import org.firstinspires.ftc.teamcode.pedro.PoseStorage;
 
 import dev.nextftc.robot.opmode.BulkReadHook;
 import dev.nextftc.robot.opmode.NextAutonomous;
@@ -66,6 +67,9 @@ public class exampleAuto extends NextOpMode {
         telemetry.addData("x", robotX);
         telemetry.addData("y", robotY);
         telemetry.addData("heading", robotHeading);
+
+        // Update the pose storage
+        PoseStorage.currentPose = follower.pose();
 
         if (follower.currentPath() != null) {
             telemetry.addData("Current path distance remaining", follower.distanceToEndpoint());
