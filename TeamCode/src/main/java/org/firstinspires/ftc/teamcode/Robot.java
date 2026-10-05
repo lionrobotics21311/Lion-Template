@@ -12,16 +12,17 @@ import org.firstinspires.ftc.teamcode.mechanisms.Intake;
 public class Robot implements NextRobot {
 
     public final Claw claw = new Claw();
-    public final Intake intake = new Intake();
+    // public final Intake intake = new Intake();
 
-    public final Drivetrain drivetrain = new Drivetrain(); // DO NOT DELETE
+    // public final Drivetrain drivetrain = new Drivetrain(); // DO NOT DELETE
 
     @Override
     public Set<Mechanism> getMechanisms() {
         return Set.of(
-                drivetrain, // DO NOT DELETE
-                claw,
-                intake
+                claw
+                // intake
         );
     }
+
+    public Robot(){}
 }

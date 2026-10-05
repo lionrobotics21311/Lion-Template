@@ -55,7 +55,7 @@ public class exampleAuto extends NextOpMode {
     // Runs every loop of the op mode until stopped
     @Override
     public void periodic() {
-        robot.intake.run(1); // runs the intake at 100% power
+        // robot.intake.run(1); // runs the intake at 100% power
 
         follower.update();
         Scheduler.execute();
