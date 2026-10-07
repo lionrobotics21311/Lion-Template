@@ -19,7 +19,7 @@ public class Constants {
     // https://pedropathing.com/docs/pathing/tuning/drivetrain/mecanum
     public static MecanumConfig drivetrainConfig = new MecanumConfig(
             c -> {
-                // motor names
+                // motor names (config names do matter here)
                 c.frontLeftName.set("lf");
                 c.backLeftName.set("lr");
                 c.frontRightName.set("rf");
