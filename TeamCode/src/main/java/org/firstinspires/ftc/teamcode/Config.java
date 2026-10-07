@@ -11,4 +11,5 @@ public class Config {
 
     public static int Claw = 1;
     public static int Intake = 0;
+    public static int Arm = 1;
 }
