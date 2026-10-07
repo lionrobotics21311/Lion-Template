@@ -6,6 +6,7 @@ import com.bylazar.telemetry.TelemetryManager;
 import org.firstinspires.ftc.teamcode.Robot;
 
 import dev.nextftc.robot.NextRobot;
+import dev.nextftc.robot.Telemetry;
 import dev.nextftc.robot.opmode.BulkReadHook;
 import dev.nextftc.robot.opmode.NextOpMode;
 import dev.nextftc.robot.opmode.NextTeleop;
@@ -16,6 +17,9 @@ public class panelsGrapth extends NextOpMode {
 
     public panelsGrapth(Robot robot) {
         super(robot);
+
+        // https://nextftc.dev/robot/telemetry/
+        Telemetry.addBackend(panelsTele.getWrapper());
     }
 
     // runs right when you click start from init
@@ -28,7 +32,5 @@ public class panelsGrapth extends NextOpMode {
     public void periodic() {
         double voltage = hardwareMap.voltageSensor.iterator().next().getVoltage();
         panelsTele.addData("voltage", voltage);
-
-        panelsTele.update();
     }
 }
