@@ -1,7 +1,9 @@
 package org.firstinspires.ftc.teamcode.opmodes.teleop;
 
+import org.firstinspires.ftc.teamcode.Config;
 import org.firstinspires.ftc.teamcode.Robot;
 
+import dev.nextftc.hardware.RobotController;
 import dev.nextftc.hardware.sensors.NextPinpoint;
 import dev.nextftc.robot.opmode.NextOpMode;
 import dev.nextftc.robot.opmode.NextTeleop;
@@ -14,14 +16,12 @@ public class exampleTele extends NextOpMode {
         this.robot = nextRobot;
     }
 
-    private NextPinpoint imu;
-
+    private final NextPinpoint imu = new NextPinpoint(RobotController.controlHub(), Config.PinpointIMU);
 
     // runs right when you click start from init
     @Override
     public void start() {
         // robot.drivetrain.startDrive(gamepad1);
-        imu = new NextPinpoint("pinpoint");
     }
 
     // Runs every loop of the op mode until stopped
