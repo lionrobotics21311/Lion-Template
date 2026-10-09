@@ -1,10 +1,12 @@
 package org.firstinspires.ftc.teamcode.mechanisms;
 
+import static org.firstinspires.ftc.teamcode.configs.encoderTicks.getEncoderConversion;
 import static dev.nextftc.units.Units.Degrees;
 
 import com.pedropathing.ivy.Command;
 
-import org.firstinspires.ftc.teamcode.Config;
+import org.firstinspires.ftc.teamcode.configs.Config;
+import org.firstinspires.ftc.teamcode.configs.encoderTicks;
 
 import dev.nextftc.hardware.RobotController;
 import dev.nextftc.hardware.actuators.NextMotor;
@@ -12,7 +14,11 @@ import dev.nextftc.robot.Mechanism;
 import dev.nextftc.units.measuretypes.Angle;
 
 public class Arm implements Mechanism {
-    NextMotor motor = new NextMotor(RobotController.expansionHub(), Config.Arm);
+    NextMotor motor = new NextMotor(
+            RobotController.expansionHub(),
+            Config.Arm,
+            getEncoderConversion(encoderTicks.GOBILDA_30_RPM)
+    );
 
     public Command run(double pwr) {
         return instant(() ->

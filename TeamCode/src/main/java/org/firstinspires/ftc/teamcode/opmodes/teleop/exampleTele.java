@@ -1,6 +1,6 @@
 package org.firstinspires.ftc.teamcode.opmodes.teleop;
 
-import org.firstinspires.ftc.teamcode.Config;
+import org.firstinspires.ftc.teamcode.configs.Config;
 import org.firstinspires.ftc.teamcode.Robot;
 
 import dev.nextftc.hardware.RobotController;
