@@ -9,9 +9,11 @@ public class Config {
 
     // Your pinpoint should NEVER be plugged into port 0
     // Port 0 is used by the internal IMU and cannot be used by an external IMU
+    // ports on the expansion hub are treated as extensions of the port list (4,5,6,7) 4ex=0con
     public static int PinpointIMU = 1;
-
-    public static int Claw = 1;
     public static int Intake = 0;
     public static int Arm = 1;
+    public static int flyWheel=3;
+    public static int intake_right;
+    public static int intake_left;
 }
