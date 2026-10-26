@@ -4,9 +4,12 @@ import com.bylazar.configurables.annotations.Configurable;
 import com.qualcomm.hardware.lynx.LynxModule;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.seattlesolvers.solverslib.gamepad.GamepadEx;
 import com.seattlesolvers.solverslib.gamepad.GamepadKeys;
+import com.seattlesolvers.solverslib.hardware.SimpleServo;
 import com.seattlesolvers.solverslib.hardware.motors.Motor;
+import com.seattlesolvers.solverslib.hardware.servos.ServoEx;
 
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
@@ -45,11 +48,20 @@ public class teleExample extends LinearOpMode {
         Motor intake = new Motor(hardwareMap, "intake", Motor.GoBILDA.RPM_1150);
 
         // --- Standard Servo Initialization ---
+        ServoEx servoName = new ServoEx(hardwareMap, "servoEx");
 
         // --- Continuous Rotation Servo Initialization ---
+        CRServo CRservoName = hardwareMap.get(CRServo.class, "CRservoName");
+
+        //If you need to reverse the direction of the CR Servo.
+       // CRservoName.setDirection(CRServo.Direction.REVERSE);
+
 
         // --- SERVO POSITION CONSTANTS ---
-
+        //You can rename these servo positions and add/remove positions. Name them something meaningful.
+        //Position values can range from 0 to 1.
+        double servoPosition1 = 0.5;
+        double servoPosition2 = 0.6;
 
         waitForStart();
 
@@ -70,6 +82,9 @@ public class teleExample extends LinearOpMode {
                 intake.set(0);
             }
 
+            if (driver1.wasJustPressed(GamepadKeys.Button.A)){
+                servoName.set(servoPosition1);
+            }
             flywheel.updateFlywheel(3000);
 
             drivetrain.driveFieldCentric();
