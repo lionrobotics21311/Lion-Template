@@ -17,6 +17,8 @@ import org.firstinspires.ftc.teamcode.pedro.PoseStorage;
 
 import java.util.List;
 
+
+//Go to this site for documentation: https://docs.seattlesolvers.com/
 @TeleOp(name = "Example Tele", group = "TeleOp")
 @Configurable
 public class teleExample extends LinearOpMode {
@@ -39,8 +41,15 @@ public class teleExample extends LinearOpMode {
         // Heading needs to be negative for blue side
         drivetrain.pinpoint.setPosition(new Pose2D(DistanceUnit.INCH, PoseStorage.currentPose.x(), PoseStorage.currentPose.y(), AngleUnit.RADIANS, PoseStorage.currentPose.heading()));
 
-        // -- main stuff ---
+        // --- Motor Initialization ---
         Motor intake = new Motor(hardwareMap, "intake", Motor.GoBILDA.RPM_1150);
+
+        // --- Standard Servo Initialization ---
+
+        // --- Continuous Rotation Servo Initialization ---
+
+        // --- SERVO POSITION CONSTANTS ---
+
 
         waitForStart();
 
