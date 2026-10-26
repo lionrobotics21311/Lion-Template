@@ -18,6 +18,8 @@ public class flywheel {
         flywheel = new Motor(hw, "flywheel", Motor.GoBILDA.BARE);
     }
 
+    // very basic flywheel controller (bang bang)
+    // sets power to 100% until it reaches bang bang threshold, then sets power to 0%
     public static void updateFlywheel(double targetRPM) {
         double err = (targetRPM - (flywheel.getCorrectedVelocity()/28*60));
 
