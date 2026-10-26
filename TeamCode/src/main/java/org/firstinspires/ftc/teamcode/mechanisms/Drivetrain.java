@@ -9,12 +9,12 @@ import com.seattlesolvers.solverslib.hardware.motors.Motor;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 
-public class drivetrain {
-    public static GoBildaPinpointDriver pinpoint;
-    private static GamepadEx gp;
-    private static MecanumDrive drive;
+public class Drivetrain {
+    public GoBildaPinpointDriver pinpoint;
+    private final GamepadEx gp;
+    private final MecanumDrive drive;
 
-    public drivetrain(HardwareMap hw, GamepadEx gamepad1) {
+    public Drivetrain(HardwareMap hw, GamepadEx gamepad1) {
         pinpoint = hw.get(GoBildaPinpointDriver.class, "pinpoint");
         gp = gamepad1;
 
@@ -40,7 +40,7 @@ public class drivetrain {
         pinpoint.recalibrateIMU();
     }
 
-    public static void driveFieldCentric() {
+    public void driveFieldCentric() {
         drive.driveFieldCentric(
                 gp.getLeftX(),
                 gp.getLeftY(),
@@ -50,7 +50,7 @@ public class drivetrain {
         );
     }
 
-    public static void driveRobotCentric() {
+    public void driveRobotCentric() {
         drive.driveRobotCentric(
                 gp.getLeftX(),
                 gp.getLeftY(),
