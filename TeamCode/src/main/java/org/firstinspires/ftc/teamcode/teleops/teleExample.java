@@ -14,8 +14,8 @@ import com.seattlesolvers.solverslib.hardware.servos.ServoEx;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.Pose2D;
-import org.firstinspires.ftc.teamcode.mechanisms.drivetrain;
-import org.firstinspires.ftc.teamcode.mechanisms.flywheel;
+import org.firstinspires.ftc.teamcode.mechanisms.Drivetrain;
+import org.firstinspires.ftc.teamcode.mechanisms.Flywheel;
 import org.firstinspires.ftc.teamcode.pedro.PoseStorage;
 
 import java.util.List;
@@ -37,12 +37,12 @@ public class teleExample extends LinearOpMode {
         GamepadEx driver2 = new GamepadEx(gamepad2);
 
         // mechanisms
-        new drivetrain(hardwareMap, driver1);
-        new flywheel(hardwareMap);
+        Drivetrain drive = new Drivetrain(hardwareMap, driver1);
+        Flywheel flywheel = new Flywheel(hardwareMap);
 
         // --- Auto ---
         // Heading needs to be negative for blue side
-        drivetrain.pinpoint.setPosition(new Pose2D(DistanceUnit.INCH, PoseStorage.currentPose.x(), PoseStorage.currentPose.y(), AngleUnit.RADIANS, PoseStorage.currentPose.heading()));
+        drive.pinpoint.setPosition(new Pose2D(DistanceUnit.INCH, PoseStorage.currentPose.x(), PoseStorage.currentPose.y(), AngleUnit.RADIANS, PoseStorage.currentPose.heading()));
 
         // --- Motor Initialization ---
         Motor intake = new Motor(hardwareMap, "intake", Motor.GoBILDA.RPM_1150);
@@ -73,7 +73,7 @@ public class teleExample extends LinearOpMode {
             driver2.readButtons();
 
             if (driver1.wasJustPressed(GamepadKeys.Button.Y)) {
-                drivetrain.pinpoint.setHeading(0, AngleUnit.DEGREES);
+                drive.pinpoint.setHeading(0, AngleUnit.DEGREES);
             }
 
             if (driver1.getTrigger(GamepadKeys.Trigger.RIGHT_TRIGGER) > 0.1) {
@@ -87,8 +87,8 @@ public class teleExample extends LinearOpMode {
             }
             flywheel.updateFlywheel(3000);
 
-            drivetrain.driveFieldCentric();
-            drivetrain.pinpoint.update();
+            drive.driveFieldCentric();
+            drive.pinpoint.update();
             telemetry.update();
         }
     }
