@@ -1,9 +1,12 @@
 package org.firstinspires.ftc.teamcode.mechanisms;
 
 import static java.lang.Math.abs;
-import com.seattlesolvers.solverslib.hardware.motors.Motor;
+
 import com.bylazar.configurables.annotations.Configurable;
+import com.bylazar.telemetry.PanelsTelemetry;
+import com.bylazar.telemetry.TelemetryManager;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.seattlesolvers.solverslib.hardware.motors.Motor;
 
 @Configurable
 public class Flywheel {
@@ -14,15 +17,11 @@ public class Flywheel {
         flywheel = new Motor(hw, "flywheel", Motor.GoBILDA.BARE);
     }
 
-    // very basic flywheel controller (bang bang)
-    // sets power to 100% until it reaches bang bang threshold, then sets power to 0%
     public void updateFlywheel(double targetRPM) {
         double err = (targetRPM - (flywheel.getCorrectedVelocity()/28*60));
 
-        // Bang-bang control
         if (abs(err) > bangbangThreshold) {
             flywheel.set(err > 0 ? 1 : 0);
         }
     }
-
 }
