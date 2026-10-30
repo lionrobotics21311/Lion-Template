@@ -4,10 +4,10 @@ import com.bylazar.configurables.annotations.Configurable;
 import com.qualcomm.hardware.lynx.LynxModule;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.CRServo;
 import com.seattlesolvers.solverslib.gamepad.GamepadEx;
 import com.seattlesolvers.solverslib.gamepad.GamepadKeys;
 import com.seattlesolvers.solverslib.hardware.SimpleServo;
+import com.seattlesolvers.solverslib.hardware.motors.CRServo;
 import com.seattlesolvers.solverslib.hardware.motors.Motor;
 import com.seattlesolvers.solverslib.hardware.servos.ServoEx;
 
@@ -51,7 +51,7 @@ public class teleExample extends LinearOpMode {
         ServoEx servoName = new ServoEx(hardwareMap, "servoEx");
 
         // --- Continuous Rotation Servo Initialization ---
-        CRServo CRservoName = hardwareMap.get(CRServo.class, "CRservoName");
+        CRServo CRservoName = new CRServo(hardwareMap, "CRServoName");
 
         //If you need to reverse the direction of the CR Servo.
        // CRservoName.setDirection(CRServo.Direction.REVERSE);
